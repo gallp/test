@@ -14,7 +14,6 @@ public class TablePanel extends  Panel {
         setLayout(new BorderLayout());
         tableModel = new TableModel();
         table = new JTable(tableModel);
-
         add(table);
     }
 
