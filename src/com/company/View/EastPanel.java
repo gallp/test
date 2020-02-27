@@ -13,7 +13,7 @@ public class EastPanel extends Panel {
 
         public EastPanel() {
         super();
-        setPreferredSize(new Dimension(300,1));
+        setPreferredSize(new Dimension(400,1));
         makeBorder();
         setLayout(new GridLayout(4,1,5,5));
         textPane = new JTextPane();

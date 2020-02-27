@@ -8,6 +8,7 @@ public class MainFrame extends JFrame {
 
     private CentralPanel centerPanel;
     private EastPanel eastPanel;
+    private MenuB menuBar;
 
     public MainFrame(String title) throws HeadlessException {
         super(title);
@@ -18,11 +19,13 @@ public class MainFrame extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
 
-        centerPanel = new CentralPanel();
 
-        add(centerPanel, BorderLayout.CENTER);
+        menuBar = new MenuB();
+        centerPanel = new CentralPanel();
         eastPanel = new EastPanel();
 
+        setMenuBar(menuBar);
+        add(centerPanel, BorderLayout.CENTER);
         add(eastPanel, BorderLayout.EAST);
 
         centerPanel.setButtonEventListener(new ButtonEventListener() {
@@ -44,11 +47,9 @@ public class MainFrame extends JFrame {
             public void ClearButtonEventOccured(ButtonEvent _event) {
                 eastPanel.clearTextArea();
                 eastPanel.setLab01Text("counter 0");
-
             }
         });
-
-        };
+    }
 
     public CentralPanel getCenterPanel() {
         return centerPanel;
@@ -60,9 +61,8 @@ public class MainFrame extends JFrame {
 
     public void setErrorMessage(String message) {
 
-           JOptionPane.showMessageDialog(this,"Invalid Format","Warning",JOptionPane.ERROR_MESSAGE);
-
-           setVisible(true);
+           JOptionPane.showMessageDialog(this,"Invalid Format",
+                   "Warning", JOptionPane.ERROR_MESSAGE);
 
         }
 }

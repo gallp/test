@@ -25,7 +25,6 @@ public class MainController {
             public void dataSubmitted(DataTransferEvent e) {
 
                 try {
-
                     String name = e.getName();
                     int age = Integer.parseInt(e.getAge());
                     double weight = Double.parseDouble(e.getWeight());
@@ -33,15 +32,13 @@ public class MainController {
                     System.out.println(container.getCount());
                     mainFrame.getEastPanel().getTablePanel().setData(container.getLst00());
                     mainFrame.getEastPanel().getTablePanel().refresh();
-
                 } catch (Exception ex) {
                     ex.printStackTrace();
                     mainFrame.setErrorMessage("Error");
                 }
-
-
             }
         });
+
     }
 
 }
