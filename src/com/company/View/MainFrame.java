@@ -1,5 +1,6 @@
 package com.company.View;
 
+import javax.sql.rowset.JdbcRowSet;
 import javax.swing.*;
 import java.awt.*;
 
@@ -57,6 +58,13 @@ public class MainFrame extends JFrame {
         return eastPanel;
      }
 
+    public void setErrorMessage(String message) {
 
+           JOptionPane.showMessageDialog(this,"Invalid Format","Warning",JOptionPane.ERROR_MESSAGE);
+
+           setVisible(true);
+
+        }
 }
+
 

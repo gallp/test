@@ -6,6 +6,8 @@ import com.company.View.DataTransferEvent;
 import com.company.View.DataTransferEventListener;
 import com.company.View.MainFrame;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.List;
 
 public class MainController {
@@ -21,13 +23,23 @@ public class MainController {
         mainFrame.getCenterPanel().setDataTransferEventListener(new DataTransferEventListener() {
             @Override
             public void dataSubmitted(DataTransferEvent e) {
-                String name = e.getName();
-                int age = Integer.parseInt(e.getAge());
-                double weight = Double.parseDouble(e.getWeight());
-                container.addObj(new Obj(name, age, (float) weight));
-                System.out.println(container.getCount());
-                mainFrame.getEastPanel().getTablePanel().setData(container.getLst00());
-                mainFrame.getEastPanel().getTablePanel().refresh();
+
+                try {
+
+                    String name = e.getName();
+                    int age = Integer.parseInt(e.getAge());
+                    double weight = Double.parseDouble(e.getWeight());
+                    container.addObj(new Obj(name, age, (float) weight));
+                    System.out.println(container.getCount());
+                    mainFrame.getEastPanel().getTablePanel().setData(container.getLst00());
+                    mainFrame.getEastPanel().getTablePanel().refresh();
+
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                    mainFrame.setErrorMessage("Error");
+                }
+
+
             }
         });
     }
