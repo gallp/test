@@ -1,6 +1,8 @@
 package com.company.Data;
 
-public class Obj {
+import java.io.Serializable;
+
+public class Obj implements Serializable {
 
     private String name;
     private int age;

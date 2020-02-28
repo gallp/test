@@ -3,6 +3,7 @@ package com.company.View;
 import javax.sql.rowset.JdbcRowSet;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 
 public class MainFrame extends JFrame {
 
@@ -28,6 +29,18 @@ public class MainFrame extends JFrame {
         add(centerPanel, BorderLayout.CENTER);
         add(eastPanel, BorderLayout.EAST);
 
+        menuBar.setMenuItemActionListener(new MenuItemActionListener() {
+            @Override
+            public void importTriggered(MenuBEvent event) {
+
+            }
+
+            @Override
+            public void exportTriggered(MenuBEvent _event) {
+
+            }
+        });
+
         centerPanel.setButtonEventListener(new ButtonEventListener() {
             @Override
             public void ClickedButtonEventOccured(ButtonEvent _event) {
@@ -49,15 +62,24 @@ public class MainFrame extends JFrame {
                 eastPanel.setLab01Text("counter 0");
             }
         });
+
+
+
+
     }
 
-    public CentralPanel getCenterPanel() {
+        public MenuB getMenuB () {
+            return menuBar;
+        }
+
+        public CentralPanel getCenterPanel() {
         return centerPanel;
     }
 
-     public EastPanel getEastPanel() {
+        public EastPanel getEastPanel() {
         return eastPanel;
      }
+
 
     public void setErrorMessage(String message) {
 

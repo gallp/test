@@ -90,7 +90,7 @@ public class CentralPanel extends Panel{
             cBtn04.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent a) {
-                    DataTransferEvent e = new DataTransferEvent(this, name.getText(),age.getText(),weight.getText());
+                    DataTransferEvent e = new DataTransferEvent(this, name.getText(), age.getText(), weight.getText());
                     if(dataTransferEventListener != null) {
                         dataTransferEventListener.dataSubmitted(e);
                     }

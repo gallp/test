@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
+import java.io.*;
 
 public class MenuB extends MenuBar {
 
@@ -32,30 +32,41 @@ public class MenuB extends MenuBar {
         _import.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent a) {
-
-
-
-
-
+                MenuBEvent event = new MenuBEvent(this);
+                if(listener != null) {
+                    listener.importTriggered(event);
+                }
             }
         });
 
         _export.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                fc.showSaveDialog(null);
-                int choice = fc.showSaveDialog(null);
-                if(choice == JFileChooser.APPROVE_OPTION) {
-                    File name = fc.getSelectedFile();
-                    System.out.println(name);
+            public void actionPerformed(ActionEvent a) {
+              MenuBEvent event = new MenuBEvent(this);
+                if(listener!=null) {
+                    listener.exportTriggered(event);
                 }
+
+
+                /*fc.showSaveDialog(null);
+                File fileToOpen = fc.getSelectedFile();
+                System.out.println(fileToOpen);
+
+                try {
+                    FileOutputStream fileOutputStream = new FileOutputStream(fileToOpen);
+                    DataOutput dataOutput = new DataOutputStream(fileOutputStream);
+
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }*/
+
             }
+
         });
 
     }
 
-
-        public void setActionListener(MenuItemActionListener listener) {
+        public void setMenuItemActionListener(MenuItemActionListener listener) {
             this.listener = listener;
     }
 }

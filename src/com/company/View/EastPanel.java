@@ -16,6 +16,8 @@ public class EastPanel extends Panel {
         setPreferredSize(new Dimension(400,1));
         makeBorder();
         setLayout(new GridLayout(4,1,5,5));
+        tablePanel = new TablePanel();
+        add(new JScrollPane(tablePanel));
         textPane = new JTextPane();
         textPane.setMaximumSize(new Dimension(400,60));
         textPane.setPreferredSize(new Dimension(1,50));
@@ -25,8 +27,7 @@ public class EastPanel extends Panel {
         add(new JScrollPane(textArea));
         lab01 = new JLabel("counter 0");
         add(lab01);
-        tablePanel = new TablePanel();
-        add(new JScrollPane(tablePanel));
+
 
      }
 
